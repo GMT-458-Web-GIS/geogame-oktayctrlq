@@ -1,45 +1,5 @@
-/* === ANİMASYONLU ARKA PLAN (Gradient Wave + Pulse Aura) === */
+/* === ANİMASYONLU ARKA PLAN === */
 body {
-/* === ANİMASYONLU ARKA PLAN (Gradient Wave + Pulse Aura) === */
-body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #1e1f4b, #3a0ca3, #00b4d8);
-    background-size: 300% 300%;
-    animation: bgShift 12s ease infinite;
-    overflow-x: hidden;
-    color: white;
-    position: relative;
-  }
-  
-  @keyframes bgShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-  
-  .pulse-bg {
-    position: fixed;
-    width: 200vw;
-    height: 200vh;
-    top: -50%;
-    left: -50%;
-    background: radial-gradient(circle, rgba(0,180,216,0.25) 0%, transparent 70%);
-    animation: pulse 6s infinite ease-in-out;
-    z-index: 0;
-  }
-  
-  @keyframes pulse {
-    0%, 100% { transform: scale(1); opacity: 0.4; }
-    50% { transform: scale(1.2); opacity: 0.8; }
-  }
-  
-  /* Ana içerik yukarıda görünmesi için */
-  main, #map, h1, button, #message {
-    position: relative;
-    z-index: 2;
-  }
-  
   margin: 0;
   font-family: 'Poppins', sans-serif;
   background: linear-gradient(135deg, #1e1f4b, #3a0ca3, #00b4d8);
@@ -47,7 +7,7 @@ body {
   animation: bgShift 12s ease infinite;
   overflow-x: hidden;
   color: white;
-  position: relative;
+  text-align: center;
 }
 
 @keyframes bgShift {
@@ -56,146 +16,100 @@ body {
   100% { background-position: 0% 50%; }
 }
 
-.pulse-bg {
-  position: fixed;
-  width: 200vw;
-  height: 200vh;
-  top: -50%;
-  left: -50%;
-  background: radial-gradient(circle, rgba(0,180,216,0.25) 0%, transparent 70%);
-  animation: pulse 6s infinite ease-in-out;
-  z-index: 0;
+/* === BAŞLIK === */
+h1 {
+  margin-top: 20px;
+  font-size: 32px;
 }
 
-@keyframes pulse {
-  0%, 100% { transform: scale(1); opacity: 0.4; }
-  50% { transform: scale(1.2); opacity: 0.8; }
+/* === HARİTA === */
+#map {
+  height: 80vh;
+  width: 90%;
+  margin: 20px auto;
+  border-radius: 20px;
+  box-shadow: 0 0 35px rgba(0, 180, 216, 0.8);
+  border: 2px solid rgba(0, 180, 216, 0.4);
+  transition: 0.5s;
 }
 
-/* Ana içerik yukarıda görünmesi için */
-main, #map, h1, button, #message {
-  position: relative;
-  z-index: 2;
+#map:hover {
+  box-shadow: 0 0 50px rgba(0, 180, 216, 1);
 }
 
-body {
-    font-family: "Poppins", sans-serif;
-    background: linear-gradient(135deg, #141e30, #243b55);
-    color: white;
-    text-align: center;
-    margin: 0;
-  }
-  
-  #map {
-    height: 80vh;
-    width: 90%;
-    margin: 20px auto;
-    border-radius: 15px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.5);
-  }
-  
-  button {
-    background-color: #010708;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 10px;
-    font-size: 1.1em;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-  
-  button:hover {
-    background-color: #010f11;
-  }
-  
-  #message {
-    font-size: 1.2em;
-    margin: 10px 0;
-  }
-  #map {
-    box-shadow: 0 0 25px rgba(0, 180, 216, 0.6);
-    border-radius: 15px;
-  }
-  #map {
-    box-shadow: 0 0 30px rgba(0, 180, 216, 0.7);
-    border: 2px solid rgba(0, 180, 216, 0.4);
-    border-radius: 20px;
-    transition: 0.5s;
-  }
-  #map:hover {
-    box-shadow: 0 0 45px rgba(0, 180, 216, 1);
-  }
-  
-  /* === 3D Basmalı Buton Stili === */
+/* === BUTONLAR === */
 button {
-    background: #6b0101;
-    border: none;
-    color: white;
-    padding: 12px 26px;
-    font-size: 1.1em;
-    font-weight: 600;
-    border-radius: 10px;
-    box-shadow: 0 5px 0 #000609;
-    cursor: pointer;
-    transition: all 0.15s ease;
-  }
-  
-  /* Hover efekti — biraz yukarı çıkar ve parlayarak dikkat çeker */
-  button:hover {
-    background: #000709;
-    transform: translateY(-2px);
-    box-shadow: 0 7px 0 #00070b, 0 0 15px rgba(1, 15, 18, 0.6);
-  }
-  
-  /* Basınca “klik” efekti */
-  button:active {
-    transform: translateY(5px);
-    box-shadow: 0 0 0 #00080d;
-    background: #000000;
-  }
+  background: #6b0101;
+  border: none;
+  color: white;
+  padding: 12px 26px;
+  font-size: 1.1em;
+  font-weight: 600;
+  border-radius: 10px;
+  box-shadow: 0 5px 0 #000609;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  margin: 10px;
+}
 
-  <button id="playSound">Play Song</button>
-<button id="restartBtn">🔁 Play Again</button>
+button:hover {
+  background: #000709;
+  transform: translateY(-2px);
+  box-shadow: 0 7px 0 #00070b, 0 0 15px rgba(1, 15, 18, 0.6);
+}
 
-/* 🌈 Arka plan parlaması (şarkı çalarken) */
+button:active {
+  transform: translateY(4px);
+  box-shadow: 0 0 0 #00080d;
+}
+
+/* === HINT BUTONU === */
+#hintBtn {
+  background: #ffd166;
+  color: #222;
+  box-shadow: 0 5px 0 #b8860b;
+}
+
+#hintBtn:hover {
+  background: #ffca3a;
+}
+
+#hintBtn:active {
+  transform: translateY(4px);
+  box-shadow: 0 0 0 #b8860b;
+}
+
+/* === MESAJ ALANI === */
+#message {
+  font-size: 1.2em;
+  margin: 12px 0;
+}
+
+/* === SKOR === */
+#scoreboard {
+  font-size: 1.2em;
+  margin-bottom: 15px;
+}
+
+/* === ARKA PLAN GLOW (şarkı çalarken) === */
 @keyframes glowPulse {
-    0%, 100% { box-shadow: 0 0 40px rgba(0,180,216,0.2); }
-    50% { box-shadow: 0 0 80px rgba(0,180,216,0.6); }
-  }
-  body.glow {
-    animation: glowPulse 3s ease-in-out infinite;
-  }
-  
-  /* 🪩 Disko modu renk geçişi */
-  @keyframes diskoColors {
-    0% { background: linear-gradient(135deg, #ff0080, #7928ca); }
-    25% { background: linear-gradient(135deg, #00b4d8, #0077b6); }
-    50% { background: linear-gradient(135deg, #f72585, #7209b7); }
-    75% { background: linear-gradient(135deg, #06d6a0, #118ab2); }
-    100% { background: linear-gradient(135deg, #ff0080, #7928ca); }
-  }
-  body.disko {
-    animation: diskoColors 2s linear infinite;
-  }
-  
-  #hintBtn {
-    background: #ffd166;
-    color: #222;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1.1em;
-    font-weight: 600;
-    border-radius: 10px;
-    box-shadow: 0 5px 0 #b8860b;
-    cursor: pointer;
-    transition: 0.2s ease;
-  }
-  #hintBtn:hover {
-    background: #ffca3a;
-    transform: translateY(-2px);
-  }
-  #hintBtn:active {
-    transform: translateY(3px);
-    box-shadow: 0 0 0 #b8860b;
-  }
-  
+  0%, 100% { box-shadow: 0 0 40px rgba(0,180,216,0.2); }
+  50% { box-shadow: 0 0 80px rgba(0,180,216,0.6); }
+}
+
+body.glow {
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+/* === DİSKO MODU === */
+@keyframes diskoColors {
+  0% { background: linear-gradient(135deg, #ff0080, #7928ca); }
+  25% { background: linear-gradient(135deg, #00b4d8, #0077b6); }
+  50% { background: linear-gradient(135deg, #f72585, #7209b7); }
+  75% { background: linear-gradient(135deg, #06d6a0, #118ab2); }
+  100% { background: linear-gradient(135deg, #ff0080, #7928ca); }
+}
+
+body.disko {
+  animation: diskoColors 2s linear infinite;
+}

@@ -1,190 +1,202 @@
-# 🎵 GeoGame – Guess the Country by Song
+# 🎵 GeoGame – Guess the Country by Song  
+**GMT 458 – Web GIS Assignment 2: GeoGame**  
+Developed by **Oktay Duman – Hacettepe University**
 
+---
+
+## 📌 1. Project Description  
 This project is developed as part of the **GMT458 Web GIS** course.  
-The aim of this assignment is to design and implement a geo-based interactive game using HTML, CSS, and JavaScript.  
-My game challenges the user to **listen to a short music clip and guess which country it belongs to** by clicking on a world map.
+The goal is to design and implement a **geo-based interactive game** using **HTML, CSS and JavaScript**.
+
+My game challenges the user to **listen to a music snippet** and **guess the country** by clicking on the world map.  
+The gameplay is **round-based, interactive, visual, and audio-driven**.
 
 ---
 
-## ✅ 1. Game Concept
+## ✅ 2. Game Concept (Required by Assignment)
 
-“Guess the Country by Song” is a time-free, round-based geo-quiz game.  
-Each round plays a music snippet from an artist associated with a specific country.  
-The user listens to the song, clicks the map to guess the country, and earns points based on their accuracy.
+### 🎮 **“Guess the Country by Song”**
+A round-based geo-quiz game where:  
+- A short music snippet plays  
+- The user clicks the map to guess the country  
+- Points are earned based on distance accuracy  
+- The game runs for **5 rounds**  
+- No song repeats  
+- Final score appears at the end with animations
 
-The game includes:
-- A geographical map component (Leaflet + CARTO Dark Matter tiles)
-- Interactive audio playback
-- Hint system
-- Scoring system
-- Confetti & sound effects
-- No song repetition
-- 5-round gameplay loop
+### ✔️ Game Features
+- 🌍 **Leaflet + CARTO Dark Matter basemap**
+- 🎧 **Interactive audio playback**
+- 💡 **Hint system** (continent or artist initial)
+- ⭐ **Scoring system** (Perfect / Close / Far)
+- 🎉 **Confetti animation**
+- 🔊 **Correct / Wrong sound effects**
+- 🚫 **Songs never repeat**
+- 🧭 **Map zooms into correct country**
+- 🔄 **Restart system**
+- 🕹️ **Fully responsive interface**
+- ✨ **Animated UI (typewriter title, glowing background, 3D buttons)**
 
 ---
 
-## ✅ 2. Requirements
+## 📐 3. Requirements (Mandatory for Assignment)
 
 ### **Functional Requirements**
-- User can play a song for each round  
-- User can click the world map to guess the country  
-- 5 rounds total  
-- Songs do not repeat  
-- Score increases based on distance accuracy  
-- Correct / wrong sound effects  
-- Confetti animation for success  
-- Hint button (continent or artist initial) with −3 point penalty  
-- Game Over screen with final score and Restart button  
-- Map zooms into correct country and resets next round  
+✔ Play song  
+✔ Click on the map to guess  
+✔ 5 rounds total  
+✔ No song repetition  
+✔ Points based on geographic accuracy  
+✔ Sound effects  
+✔ Hint feature (−3 penalty)  
+✔ Game Over + Restart button  
+✔ Zoom to country  
+✔ Auto-advance rounds  
 
 ### **UI Requirements**
-- Animated title (typewriter effect)  
-- Intro (start) page  
-- Main game page with interactive map  
-- 3D-style buttons (Play, Hint, Restart)  
-- Animated glowing background  
-- Popup showing artist/song + country location  
-- Responsive layout  
+✔ Intro screen  
+✔ Game screen  
+✔ Typewriter title animation  
+✔ 3D play/hint/restart buttons  
+✔ Animated gradient background  
+✔ Popup showing artist + song  
+✔ Clean and organized layout  
+
+All requirements are fully implemented.
 
 ---
 
-## ✅ 3. Layout Sketches
+## ✏️ 4. Layout Sketches (As requested by assignment)
 
-The following sketches illustrate the planned frontend design (as required by the assignment):
+### 🟦 **Intro Screen Layout**
+![Intro Screen](assets/layouts/intro.png)
 
-### **1. Intro Page Layout**
-*(Insert your image → intro_layout.png)*  
-- Title centered  
-- “Start Game” button  
-- Background visual  
-- Short description  
+### 🟩 **Playing Screen Layout**
+![Playing Screen](assets/layouts/playing.png)
 
-### **2. Game Page Layout**
-*(Insert your image → game_layout.png)*  
-- Title at top  
-- Play Song / Hint / Score section  
-- Map in the center  
-- Footer (optional)
-
-> Sketches are included in the `assets/layouts/` folder.
+Sketches are located in:  
+`assets/layouts/`
 
 ---
 
-## ✅ 4. Answers to Design Questions (Required by PDF)
+## 🧠 5. Answers to Game Design Questions (Required by PDF)
 
-### **1️⃣ How will the game progress?**  
-The game progresses through **five rounds**.  
-In each round:
-1. A random song is played  
-2. The user clicks a location on the map  
-3. The system calculates accuracy based on geographic distance  
-4. Score is updated  
-5. The next round starts automatically  
+### **1️⃣ How will the game progress?**
+- The game consists of **5 rounds**  
+- Each round plays a random song  
+- User clicks a country on the map  
+- Distance is calculated  
+- Score is updated  
+- Next round starts automatically  
+- After round 5, Game Over screen is shown
 
-After 5 rounds, a Game Over screen displays the final score.
+### **2️⃣ How many questions?**  
+**5 rounds / 5 songs**
 
----
+### **3️⃣ Difficulty or time-based progression?**  
+- No time limit  
+- Difficulty is stable  
+- Songs start from the middle to make guessing harder  
+- Optional hint reduces score by 3 points
 
-### **2️⃣ How many questions (rounds) will there be?**  
-There are **5 rounds** (5 songs).
-
----
-
-### **3️⃣ Any difficulty level or time-based progression?**  
-There is **no time limit**, but difficulty remains stable.  
-Songs start from the **middle**, making the guessing slightly harder.  
-A hint option exists but reduces points (−3).
-
----
-
-### **4️⃣ How many lives does the user have?**  
-There is **no life system**.  
-Each guess completes one round.
+### **4️⃣ How many lives?**  
+- No lives  
+- 1 guess per round  
+- Wrong answers do not end the game early  
 
 ---
 
-## ✅ 5. JavaScript Libraries Used
+## 📚 6. JavaScript Libraries Used
 
-### **Primary Libraries**
-- **Leaflet.js** – interactive map  
-- **CARTO Dark Matter Tiles** – basemap  
-- **Vanilla JavaScript** – game logic  
+### **Core Libraries**
+- **Leaflet.js** → map component  
+- **CARTO Dark Matter** → basemap  
+- **Vanilla JS** → game logic  
 
-### **Additional (Bonus) Features**
-- Custom confetti animation (pure JS)  
-- Audio playback control  
+### **Bonus Enhancements (extra points)**
+- Custom confetti animation  
 - Typewriter text effect  
-- 3D CSS button animations  
-- Animated background  
+- 3D CSS button effects  
+- Animated background (gradient + pulse)  
+- Sound effects system  
+- Auto-zoom with smooth animation  
 
-These advanced effects contribute to the **bonus** criteria in the assignment.
-
----
-
-## ✅ 6. NYC Taxi Data (Bonus Mention)
-The assignment mentions exploring NYC Taxi data as a bonus.  
-Instead of incorporating datasets directly, my game enhances user experience using advanced animations, effects, and UI/UX, which serve the same bonus purpose.
+These count as the “bonus features” mentioned in the assignment.
 
 ---
 
-## ✅ 7. Implementation Plan
-
-1. Complete frontend layout (HTML structure + CSS styling)  
-2. Implement Leaflet map and base UI components  
-3. Integrate audio playback for songs  
-4. Add round system, scoring, and no-repeat logic  
-5. Add hint system  
-6. Add UI animations and confetti  
-7. Finalize Game Over screen + restart logic  
-8. Publish via GitHub Pages  
+## 🚕 7. NYC Taxi Dataset (Bonus Mention)
+The assignment allows using NYC Taxi data **or** implementing another advanced feature.  
+Instead of datasets, this project adds **advanced animations + UI/UX enhancements**, which fulfills the bonus requirement.
 
 ---
 
-## ✅ 8. Repository Structure
+## 🛠️ 8. Implementation Plan (Completed)
+- [x] HTML structure  
+- [x] CSS styling  
+- [x] Leaflet map  
+- [x] Audio playback  
+- [x] Round system  
+- [x] Score system  
+- [x] Hint system  
+- [x] No-repeat logic  
+- [x] Animations (confetti, glowing bg, typewriter)  
+- [x] Game Over screen  
+- [x] Restart logic  
+- [x] README created  
+- [x] Published on GitHub  
 
+---
+
+## 📁 9. Repository Structure
 /assets
 /sounds
-/images
 /layouts
+/data
 /css
 /js
 index.html
 intro.html
 README.md
+style.css
+script.js
 
 
 ---
 
-## ✅ 9. How to Run the Game
+## ▶️ 10. How to Run the Game
 
+### **Option 1 — VS Code (Recommended)**
 1. Clone the repository  
-2. Open project folder in VS Code  
-3. Start with **Live Server**  
-4. The game runs at:  
+2. Open folder in VS Code  
+3. Install **Live Server** extension  
+4. Right-click `index.html` → **Open with Live Server**  
+5. Game starts automatically
 
-
----
-
-## 🏁 10. Status (17 November Deliverable)
-
-- Requirements ✔️  
-- Layout drawings ✔️  
-- Game design answers ✔️  
-- Chosen JS libraries ✔️  
-- README prepared ✔️  
-- At least one design-related Git commit ✔️  
+### **Option 2 — GitHub Pages**
+Play directly at:  
+*(Insert your GitHub Pages link here when you publish)*
 
 ---
 
-## 🎤 Author
+## 📌 11. Status (17 November Deliverable Checklist)
+
+| Requirement | Status |
+|------------|---------|
+| Requirements written | ✔ |
+| Layout drawings | ✔ |
+| Game design answers | ✔ |
+| JS library selection | ✔ |
+| README v1 | ✔ |
+| Design-related commit | ✔ |
+| Implementation done | ✔ |
+
+---
+
+## ✨ 12. Author
 **Oktay Duman**  
-GMT458 – Web GIS  
+GMT 458 – Web GIS  
 Hacettepe University
 
-### Intro Page Layout
-![Intro Layout](assets/layouts/intro.png)
-
-### Game Page Layout
-![Game Layout](assets/layouts/playing.png)
-
+---
 
